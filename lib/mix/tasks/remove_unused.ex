@@ -20,6 +20,7 @@ defmodule Mix.Tasks.RemoveUnused do
       {:noop, results} -> results
       {:ok, results} -> results
       :noop -> []
+      {:error, _results} -> []
     end
   end
 
