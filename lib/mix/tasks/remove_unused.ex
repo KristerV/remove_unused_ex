@@ -33,7 +33,7 @@ defmodule Mix.Tasks.RemoveUnused do
     File.stream!(file_path)
     |> Stream.with_index(1)
     |> Stream.map(fn {line, i} ->
-      if i in line_numbers do
+      if i in Enum.map(line_numbers, fn n -> elem(n, 0) end) do
         ""
       else
         line
